@@ -1,0 +1,15 @@
+{
+  "name": "news-explorer-frontend",
+  "version": "1.0.0",
+  "description": "Frontend of News Explorer app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ozan Sevkin <sevkinozan@gmail.com> (https://ozansevkin.dev)",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozansevkin/news-explorer-frontend.git"
+  }
+}
