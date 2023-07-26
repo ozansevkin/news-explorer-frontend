@@ -3,6 +3,7 @@ import Search from "@/components/Search";
 import SearchResults from "@/components/SearchResults";
 import About from "@/components/About";
 import Preloader from "@/components/Preloader";
+import NotFound from "@/components/NotFound";
 import Image from "next/image";
 import backgroundImage from "@/images/background.png";
 
