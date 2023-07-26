@@ -6,6 +6,8 @@ import Preloader from "@/components/Preloader";
 import NotFound from "@/components/NotFound";
 import Image from "next/image";
 import backgroundImage from "@/images/background.png";
+import SignIn from "@/components/SignIn";
+import SignUp from "@/components/SignUp";
 
 export default function Home() {
   return (
