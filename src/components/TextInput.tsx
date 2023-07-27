@@ -24,7 +24,7 @@ export default function TextInput({
         required={isRequired}
         minLength={minLength}
         maxLength={maxLength}
-        className="mb-8 py-[9px] text-black text-sm caret-blue-600 border-black border-b-2 border-opacity-20 focus:border-opacity-100 outline-none"
+        className="mb-[30px] xs:mb-8 py-[9px] text-black text-sm caret-blue-600 border-black border-b-2 border-opacity-20 focus:border-opacity-100 outline-none"
       />
     </label>
   );

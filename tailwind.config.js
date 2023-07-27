@@ -21,5 +21,8 @@ export const theme = {
     padding: {
       adaptive: "calc(8px + 4.25vw)",
     },
+    screens: {
+      xs: "530px",
+    },
   },
 };

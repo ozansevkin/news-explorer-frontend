@@ -3,8 +3,8 @@ import AuthorImage from "@/images/author.png";
 
 export default function About() {
   return (
-    <div className="py-20 text-zinc-900 flex gap-x-14">
-      <div className="basis-1/3">
+    <div className="pt-8 pb-20 sm:py-20 text-zinc-900 flex flex-col sm:flex-row gap-y-6 sm:gap-x-14">
+      <div className="sm:basis-1/3">
         <Image
           src={AuthorImage}
           alt="author"
@@ -12,7 +12,7 @@ export default function About() {
           width={350}
         />
       </div>
-      <section className="basis-2/3 py-8 flex flex-col gap-y-6">
+      <section className="sm:basis-2/3 py-8 flex flex-col gap-y-6">
         <h2
           className="font-serif text-[40px]
 leading-[46px]"

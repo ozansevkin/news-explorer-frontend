@@ -1,16 +1,34 @@
 import NavItem from "./NavItem";
 
-export default function Navigation({ color }: { color: "white" | "black" }) {
+interface NavigationProps {
+  color: "white" | "black";
+  isMobileMenuOpen: boolean;
+}
+
+export default function Navigation({
+  color,
+  isMobileMenuOpen,
+}: NavigationProps) {
   return (
-    <nav className="flex items-center justify-center gap-x-8 font-medium h-full">
-      <ul className="h-full">
-        <NavItem href="/" color={color}>
+    <nav
+      className={`${
+        isMobileMenuOpen
+          ? `absolute top-14 left-0 flex flex-col gap-y-5 w-full items-start px-adaptive pt-4 pb-6 ${
+              color === "black" ? "bg-white" : "bg-zinc-900"
+            }`
+          : "hidden h-full items-center gap-x-8"
+      } sm:flex justify-center font-medium`}
+    >
+      <ul className="h-full w-full">
+        <NavItem href="/" color={color} isMobileMenuOpen={isMobileMenuOpen}>
           Home
         </NavItem>
       </ul>
       <button
         type="button"
-        className={`border-${color} border-solid border-[1px] rounded-r-full rounded-l-full px-16 py-3`}
+        className={`${
+          isMobileMenuOpen ? "py-4" : "px-16 py-3"
+        } w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full`}
       >
         Sign in
       </button>
