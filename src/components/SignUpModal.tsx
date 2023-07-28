@@ -1,12 +1,13 @@
 import ModalWithForm from "./ModalWithForm";
 import TextInput from "./TextInput";
 
-export default function SignUp() {
+export default function SignUpModal() {
   return (
     <ModalWithForm
       title="Sign up"
       buttonText="Sign up"
       otherFormTitle="Sign in"
+      otherFormModalName="sign-in"
     >
       <TextInput
         type="email"

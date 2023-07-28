@@ -1,10 +1,15 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import MobileMenuButton from "./MobileMenuButton";
 
-export default function Header({ color }: { color: "white" | "black" }) {
+interface HeaderProps {
+  color: "white" | "black";
+}
+
+export default function Header({ color }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const toggleMobileMenu = () => {
@@ -28,16 +33,17 @@ export default function Header({ color }: { color: "white" | "black" }) {
     return () => window.removeEventListener("resize", handleResize);
   }, [isMobileMenuOpen, toggleMobileMenu]);
 
+  const mobileMenuBackgroundColor =
+    color === "black" ? "bg-white" : "bg-zinc-900";
+
   return (
     <>
       <header
         className={`${
           isMobileMenuOpen
-            ? `absolute top-0 left-0 w-full ${
-                color === "black" ? "bg-white" : "bg-zinc-900"
-              } px-adaptive z-40`
-            : "px-adaptive max-w-7xl mx-auto bg-stone-300 bg-opacity-[0.01]"
-        } text-${color} flex justify-between items-center h-14 sm:h-[66px] lg:h-20`}
+            ? `relative z-40 ${mobileMenuBackgroundColor}`
+            : "bg-stone-300 bg-opacity-[0.01]"
+        } px-adaptive max-w-7xl mx-auto text-${color} flex justify-between items-center h-14 sm:h-[66px] lg:h-20`}
       >
         <Logo />
         <MobileMenuButton
@@ -45,7 +51,11 @@ export default function Header({ color }: { color: "white" | "black" }) {
           onClick={toggleMobileMenu}
           isMobileMenuOpen={isMobileMenuOpen}
         />
-        <Navigation color={color} isMobileMenuOpen={isMobileMenuOpen} />
+        <Navigation
+          color={color}
+          isMobileMenuOpen={isMobileMenuOpen}
+          mobileMenuBackgroundColor={mobileMenuBackgroundColor}
+        />
         <span
           className={`absolute top-[55px] sm:top-[65px] lg:top-[79px] left-0 w-full border-b-[1px] border-${color} opacity-20`}
         />

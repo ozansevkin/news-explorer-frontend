@@ -1,6 +1,6 @@
 export default function SavedNewsHeader() {
   return (
-    <div className="pt-2 pb-8 sm:pt-6 sm:pb-8 lg:pt-10 lg:pb-14 px-adaptive max-w-7xl mx-auto">
+    <section className="pt-2 pb-8 sm:pt-6 sm:pb-8 lg:pt-10 lg:pb-14 px-adaptive max-w-7xl mx-auto">
       <h2 className="opacity-50 text-xs sm:text-sm lg:text-lg">
         Saved articles
       </h2>
@@ -10,6 +10,6 @@ export default function SavedNewsHeader() {
       <p className="pt-[50px] sm:pt-4 lg:pt-[30px]">
         By keywords: <b>Nature, Yellowstone, and 2 other</b>
       </p>
-    </div>
+    </section>
   );
 }
