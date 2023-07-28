@@ -3,31 +3,26 @@ import AuthorImage from "@/images/author.png";
 
 export default function About() {
   return (
-    <div className="pt-8 pb-20 sm:py-20 text-zinc-900 flex flex-col sm:flex-row gap-y-6 sm:gap-x-14">
-      <div className="sm:basis-1/3">
+    <div className="px-adaptive max-w-7xl mx-auto pt-8 pb-20 sm:pt-10 sm:pb-16 lg:py-20 text-zinc-900 flex flex-col items-center sm:flex-row gap-y-6 sm:gap-x-8 lg:gap-x-14">
+      <div className="sm:basis-2/5">
         <Image
           src={AuthorImage}
           alt="author"
-          className="rounded-full ml-auto"
+          className="rounded-full mx-auto"
           width={350}
         />
       </div>
-      <section className="sm:basis-2/3 py-8 flex flex-col gap-y-6">
+      <section className="sm:basis-3/5 py-8 flex flex-col gap-y-4 lg:gap-y-6">
         <h2
-          className="font-serif text-[40px]
-leading-[46px]"
+          className="font-serif text-3xl lg:text-[40px] leading-10
+lg:leading-[46px]"
         >
           About the author
         </h2>
         <p>
-          As a software developer with a background in cost management and
-          engineering, Ozan brings strong problem-solving and analytical
-          thinking skills to his work. Through a combination of formal education
-          and self-learning, he has honed his skills in writing maintainable and
-          readable code, and he is committed to delivering high-quality software
-          that meets the needs of users and stakeholders. He is highly capable
-          of using javascript technologies such as React.js, Next.js, Node.js
-          and Express.js to build full-stack and fully responsive apps.
+          Ozan is highly capable of using javascript technologies such as
+          React.js, Next.js, Typescript, Node.js and Express.js to build
+          full-stack and fully responsive apps.
         </p>
         <p>
           Ozan has completed CS50, a computer science course offered by Harvard

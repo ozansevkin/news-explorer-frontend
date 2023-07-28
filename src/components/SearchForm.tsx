@@ -7,11 +7,11 @@ export default function SearchForm() {
           name="search"
           id="search"
           placeholder="Enter topic"
-          className="sm:grow sm:h-16 py-4 sm:py-5 px-4 sm:pl-6 sm:pr-52 sm:mr-1 rounded-l-full rounded-r-full text-zinc-900 text-base font-normal caret-blue-600 outline-blue-600"
+          className="sm:grow sm:h-16 py-4 sm:py-5 px-4 sm:pl-6 sm:pr-40 lg:pr-44 sm:mr-1 rounded-l-full rounded-r-full text-zinc-900 text-base font-normal caret-blue-600 outline-blue-600"
         />
         <button
           type="submit"
-          className="sm:absolute sm:right-0 sm:z-10 w-full sm:w-[168px] h-full py-4 rounded-l-full rounded-r-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-lg font-medium leading-normal"
+          className="sm:absolute sm:right-0 sm:z-10 w-full sm:w-[160px] lg:w-[168px] h-full py-4 rounded-l-full rounded-r-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-lg font-medium leading-normal"
         >
           Search
         </button>

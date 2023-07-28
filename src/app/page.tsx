@@ -20,12 +20,11 @@ export default function Home() {
           fill={true}
           className="object-cover -z-10"
         />
-        <div className="px-adaptive max-w-7xl mx-auto">
-          <Header color="white" />
-          <Search />
-        </div>
+        <Header color="white" />
+        <Search />
       </div>
-      <main className="px-adaptive max-w-7xl mx-auto">
+      <main>
+        <SignIn></SignIn>
         <SearchResults />
         <About />
       </main>

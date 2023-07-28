@@ -7,12 +7,12 @@ const year = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="max-w-7xl mx-auto px-adaptive py-5 sm:py-8 flex flex-col-reverse gap-y-10 sm:flex-row sm:justify-between ">
+    <footer className="max-w-7xl mx-auto px-adaptive py-5 md:py-8 flex flex-col-reverse gap-y-10 md:flex-row md:justify-between ">
       <p className="text-base text-gray-400 leading-snug">
         &copy; {year} Developed by Ozan Sevkin
       </p>
-      <div className="flex justify-between">
-        <div className="flex flex-col gap-y-4 sm:gap-x-10">
+      <div className="flex justify-between md:gap-x-10">
+        <div className="flex flex-col md:flex-row gap-y-4 md:gap-x-10">
           <Link href="/">Home</Link>
           <a href="https://cs50.harvard.edu/x/2023" target="_blank">
             CS50

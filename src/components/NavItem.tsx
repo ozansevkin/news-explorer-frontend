@@ -20,8 +20,8 @@ export default function NavItem({
         className={`${
           isMobileMenuOpen
             ? "h-14"
-            : `h-full px-7 border-solid border-b-[3px] border-${color}`
-        } flex items-center w-full`}
+            : `h-full lg:px-7 border-solid border-b-[3px] border-${color} justify-center`
+        } flex items-center w-full sm:text-base lg:text-lg`}
       >
         {children}
       </Link>

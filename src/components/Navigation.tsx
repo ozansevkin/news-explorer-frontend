@@ -27,8 +27,10 @@ export default function Navigation({
       <button
         type="button"
         className={`${
-          isMobileMenuOpen ? "py-4" : "px-16 py-3"
-        } w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full`}
+          isMobileMenuOpen
+            ? "py-4"
+            : "px-16 sm:px-[51px] py-3 sm:py-2 sm:text-base"
+        } w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full whitespace-nowrap`}
       >
         Sign in
       </button>

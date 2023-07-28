@@ -36,8 +36,8 @@ export default function Header({ color }: { color: "white" | "black" }) {
             ? `absolute top-0 left-0 w-full ${
                 color === "black" ? "bg-white" : "bg-zinc-900"
               } px-adaptive z-40`
-            : "bg-[#c4c4c4] bg-opacity-[0.01]"
-        } text-${color} flex justify-between items-center h-14 sm:h-20`}
+            : "px-adaptive max-w-7xl mx-auto bg-stone-300 bg-opacity-[0.01]"
+        } text-${color} flex justify-between items-center h-14 sm:h-[66px] lg:h-20`}
       >
         <Logo />
         <MobileMenuButton
@@ -47,7 +47,7 @@ export default function Header({ color }: { color: "white" | "black" }) {
         />
         <Navigation color={color} isMobileMenuOpen={isMobileMenuOpen} />
         <span
-          className={`absolute top-[55px] sm:top-[79px] left-0 w-full border-solid border-b-[1px] border-${color} border-opacity-20`}
+          className={`absolute top-[55px] sm:top-[65px] lg:top-[79px] left-0 w-full border-b-[1px] border-${color} opacity-20`}
         />
       </header>
       {isMobileMenuOpen && (
