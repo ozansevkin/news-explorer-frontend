@@ -23,9 +23,16 @@ export default function Navigation({
           : "hidden h-full items-center gap-x-8"
       } sm:flex justify-center font-medium`}
     >
-      <ul className="h-full w-full">
+      <ul className="h-full w-full flex flex-col sm:flex-row">
         <NavItem href="/" color={color} isMobileMenuOpen={isMobileMenuOpen}>
           Home
+        </NavItem>
+        <NavItem
+          href="/saved-news"
+          color={color}
+          isMobileMenuOpen={isMobileMenuOpen}
+        >
+          Saved articles
         </NavItem>
       </ul>
       <button

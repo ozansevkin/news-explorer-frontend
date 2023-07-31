@@ -11,7 +11,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
   };
 
   const handleOverlayClose = (e: MouseEvent) => {
-    if (e.target == e.currentTarget) {
+    if (e.target === e.currentTarget) {
       closeModal();
     }
   };
