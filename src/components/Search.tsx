@@ -1,6 +1,11 @@
+import { Dispatch, SetStateAction } from "react";
 import SearchForm from "./SearchForm";
 
-export default function Search() {
+interface SearchProps {
+  setSearchValue: Dispatch<SetStateAction<string | null>>;
+}
+
+export default function Search({ setSearchValue }: SearchProps) {
   return (
     <section className="box-content px-adaptive mx-auto max-w-md lg:max-w-[608px] flex flex-col items-start text-white py-8 sm:pt-[38px] sm:pb-12 lg:py-20">
       <h1 className="font-serif text-4xl lg:text-6xl leading-10 lg:leading-[64px]">
@@ -10,7 +15,7 @@ export default function Search() {
         Find the latest news on any topic and save them in your personal
         account.
       </p>
-      <SearchForm />
+      <SearchForm setSearchValue={setSearchValue} />
     </section>
   );
 }
