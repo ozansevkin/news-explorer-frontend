@@ -5,7 +5,7 @@ export default function SavedNews() {
   return (
     <>
       <SavedNewsHeader />
-      <NewsCardList />
+      <NewsCardList newsItems={null} />
     </>
   );
 }
