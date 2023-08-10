@@ -3,7 +3,7 @@ import AuthorImage from "@/images/author.png";
 
 export default function About() {
   return (
-    <div className="px-adaptive max-w-7xl mx-auto pt-8 pb-20 sm:pt-10 sm:pb-16 lg:py-20 text-zinc-900 flex flex-col items-center sm:flex-row gap-y-6 sm:gap-x-8 lg:gap-x-14">
+    <div className="px-adaptive max-w-8xl mx-auto pt-8 pb-20 sm:pt-10 sm:pb-16 lg:py-20 text-zinc-900 flex flex-col items-center sm:flex-row gap-y-6 sm:gap-x-8 lg:gap-x-14">
       <div className="sm:basis-2/5">
         <Image
           src={AuthorImage}

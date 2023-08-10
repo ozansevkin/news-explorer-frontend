@@ -1,6 +1,6 @@
 export default function SavedNewsHeader() {
   return (
-    <section className="pt-2 pb-8 sm:pt-6 sm:pb-8 lg:pt-10 lg:pb-14 px-adaptive max-w-7xl mx-auto">
+    <section className="pt-2 pb-8 sm:pt-6 sm:pb-8 lg:pt-10 lg:pb-14 px-adaptive max-w-8xl mx-auto">
       <h2 className="opacity-50 text-xs sm:text-sm lg:text-lg">
         Saved articles
       </h2>

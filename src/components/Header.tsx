@@ -43,7 +43,7 @@ export default function Header({ color }: HeaderProps) {
           isMobileMenuOpen
             ? `relative z-40 ${mobileMenuBackgroundColor}`
             : "bg-stone-300 bg-opacity-[0.01]"
-        } px-adaptive max-w-7xl mx-auto text-${color} flex justify-between items-center h-14 sm:h-[66px] lg:h-20`}
+        } px-adaptive max-w-8xl mx-auto text-${color} flex justify-between items-center h-14 sm:h-[66px] lg:h-20`}
       >
         <Logo />
         <MobileMenuButton

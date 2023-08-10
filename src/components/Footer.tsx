@@ -7,7 +7,7 @@ const year = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="max-w-7xl mx-auto px-adaptive py-5 md:py-8 flex flex-col-reverse gap-y-10 md:flex-row md:justify-between ">
+    <footer className="max-w-8xl mx-auto px-adaptive py-5 md:py-8 flex flex-col-reverse gap-y-10 md:flex-row md:justify-between ">
       <p className="text-base text-gray-400 leading-snug">
         &copy; {year} Developed by Ozan Sevkin
       </p>
