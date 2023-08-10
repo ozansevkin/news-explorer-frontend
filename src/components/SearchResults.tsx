@@ -22,7 +22,7 @@ export default function SearchResults({ searchValue }: SearchResultsProps) {
     return <NotFound text="Sorry, but nothing matched your search terms." />;
   return (
     <div className="pt-8 pb-6 sm:py-10 lg:py-20 bg-neutral-100">
-      <h2 className="px-adaptive max-w-8xl mx-auto font-serif text-3xl lg:text-[40px] leading-[34px] lg:leading-[46px]">
+      <h2 className="px-adaptive pb-[34px] sm:pb-0 max-w-8xl mx-auto font-serif text-3xl lg:text-[40px] leading-[34px] lg:leading-[46px]">
         Search Results
       </h2>
       <NewsCardList newsItems={data.articles} size={size} />
@@ -30,7 +30,7 @@ export default function SearchResults({ searchValue }: SearchResultsProps) {
         <button
           type="button"
           onClick={() => setSize(size + 3)}
-          className="w-60 lg:w-72 h-14 lg:h-16 bg-white hover:bg-gray-200 rounded-r-full rounded-l-full font-medium leading-normal flex items-center justify-center mx-auto"
+          className="w-72 sm:w-60 lg:w-72 h-14 lg:h-16 bg-white hover:bg-gray-200 rounded-r-full rounded-l-full font-medium leading-normal flex items-center justify-center mx-auto"
         >
           Show More
         </button>
