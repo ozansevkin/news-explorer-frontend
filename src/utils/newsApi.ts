@@ -8,10 +8,10 @@ export default async function searchNews(searchValue: string) {
     currentDate.getDate() - ONE_WEEK
   ).toISOString();
 
-  const API_KEY = "eda0618d8a12420db84fc6ea248724ac";
+  const API_KEY = "25ba9a2cfb704e30aa9927217a7ec42f";
 
   const res = await fetch(
-    `https://newsapi.org/v2/everything?from=${fromDate}&to=${toDate}&q=${searchValue}&apiKey=${API_KEY}`
+    `https://newsapi.org/v2/everything?from=${fromDate}&to=${toDate}&q=${searchValue}&language=en&apiKey=${API_KEY}`
   );
 
   if (!res.ok) {
