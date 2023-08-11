@@ -24,10 +24,10 @@ export default function NavItem({
         className={`${
           isMobileMenuOpen
             ? "h-14"
-            : `h-full px-4 lg:px-7 justify-center ${
+            : `h-full justify-center px-4 lg:px-7 ${
                 isActive && `border-b-[3px] border-${color}`
               }`
-        } flex items-center w-full sm:text-base lg:text-lg whitespace-nowrap`}
+        } flex w-full items-center whitespace-nowrap sm:text-base lg:text-lg`}
       >
         {children}
       </Link>

@@ -3,18 +3,18 @@ import AuthorImage from "@/images/author.png";
 
 export default function About() {
   return (
-    <div className="px-adaptive max-w-8xl mx-auto pt-8 pb-20 sm:pt-10 sm:pb-16 lg:py-20 text-zinc-900 flex flex-col items-center sm:flex-row gap-y-6 sm:gap-x-8 lg:gap-x-14">
+    <div className="mx-auto flex max-w-8xl flex-col items-center gap-y-6 px-adaptive pb-20 pt-8 text-zinc-900 sm:flex-row sm:gap-x-8 sm:pb-16 sm:pt-10 lg:gap-x-14 lg:py-20">
       <div className="sm:basis-2/5">
         <Image
           src={AuthorImage}
           alt="author"
-          className="rounded-full mx-auto"
+          className="mx-auto rounded-full"
           width={350}
         />
       </div>
-      <section className="sm:basis-3/5 py-8 flex flex-col gap-y-4 lg:gap-y-6">
+      <section className="flex flex-col gap-y-4 py-8 sm:basis-3/5 lg:gap-y-6">
         <h2
-          className="font-serif text-3xl lg:text-[40px] leading-10
+          className="font-serif text-3xl leading-10 lg:text-[40px]
 lg:leading-[46px]"
         >
           About the author

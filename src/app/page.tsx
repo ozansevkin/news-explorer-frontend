@@ -25,7 +25,7 @@ export default function Home() {
             alt="a phone showing data on the screen"
             placeholder="blur"
             fill={true}
-            className="object-cover -z-10"
+            className="-z-10 object-cover"
           />
           <Header color="white" isLoggedIn={false} />
           <Search setSearchValue={setSearchValue} />

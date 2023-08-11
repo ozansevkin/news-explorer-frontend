@@ -44,7 +44,7 @@ export default function Header({ color, isLoggedIn }: HeaderProps) {
           isMobileMenuOpen
             ? `relative z-40 ${mobileMenuBackgroundColor}`
             : "bg-stone-300 bg-opacity-[0.01]"
-        } px-adaptive max-w-8xl mx-auto text-${color} flex justify-between items-center h-14 sm:h-[66px] lg:h-20`}
+        } mx-auto max-w-8xl px-adaptive text-${color} flex h-14 items-center justify-between sm:h-[66px] lg:h-20`}
       >
         <Logo />
         <MobileMenuButton
@@ -59,11 +59,11 @@ export default function Header({ color, isLoggedIn }: HeaderProps) {
           isLoggedIn={isLoggedIn}
         />
         <span
-          className={`absolute top-[55px] sm:top-[65px] lg:top-[79px] left-0 w-full border-b-[1px] border-${color} opacity-20`}
+          className={`absolute left-0 top-[55px] w-full border-b-[1px] sm:top-[65px] lg:top-[79px] border-${color} opacity-20`}
         />
       </header>
       {isMobileMenuOpen && (
-        <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 z-30"></div>
+        <div className="fixed left-0 top-0 z-30 h-screen w-screen bg-black bg-opacity-50"></div>
       )}
     </>
   );

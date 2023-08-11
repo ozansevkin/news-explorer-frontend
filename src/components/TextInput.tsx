@@ -16,7 +16,7 @@ export default function TextInput({
   maxLength,
 }: TextInputProps) {
   return (
-    <label className="flex flex-col text-blue-600 text-xs">
+    <label className="flex flex-col text-xs text-blue-600">
       {label}
       <input
         type={type}
@@ -24,7 +24,7 @@ export default function TextInput({
         required={isRequired}
         minLength={minLength}
         maxLength={maxLength}
-        className="mb-[30px] xs:mb-8 py-[9px] text-black text-sm caret-blue-600 border-black border-b-2 border-opacity-20 focus:border-opacity-100 outline-none"
+        className="mb-[30px] border-b-2 border-black border-opacity-20 py-[9px] text-sm text-black caret-blue-600 outline-none focus:border-opacity-100 xs:mb-8"
       />
     </label>
   );

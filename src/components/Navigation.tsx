@@ -25,11 +25,11 @@ export default function Navigation({
     <nav
       className={`${
         isMobileMenuOpen
-          ? `absolute top-14 left-0 flex flex-col gap-y-5 w-full items-start px-adaptive pt-4 pb-6 ${mobileMenuBackgroundColor}`
+          ? `absolute left-0 top-14 flex w-full flex-col items-start gap-y-5 px-adaptive pb-6 pt-4 ${mobileMenuBackgroundColor}`
           : "hidden h-full items-center gap-x-8"
-      } sm:flex justify-center font-medium`}
+      } justify-center font-medium sm:flex`}
     >
-      <ul className="h-full w-full flex flex-col sm:flex-row">
+      <ul className="flex h-full w-full flex-col sm:flex-row">
         <NavItem href="/" color={color} isMobileMenuOpen={isMobileMenuOpen}>
           Home
         </NavItem>
@@ -47,7 +47,7 @@ export default function Navigation({
         <button
           type="button"
           onClick={() => router.push("/")}
-          className={`flex justify-center w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full whitespace-nowrap sm:pl-[15px] lg:pl-[19px] py-4 sm:py-2 lg:py-3 text-lg/6 sm:text-base/6 lg:text-lg/6`}
+          className={`flex w-full justify-center border-${color} whitespace-nowrap rounded-l-full rounded-r-full border-[1px] border-solid py-4 text-lg/6 sm:py-2 sm:pl-[15px] sm:text-base/6 lg:py-3 lg:pl-[19px] lg:text-lg/6`}
         >
           Ozan
           <Image
@@ -60,7 +60,7 @@ export default function Navigation({
         <button
           type="button"
           onClick={() => setCurrentModal("sign-in")}
-          className={`w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full whitespace-nowrap px-16 sm:px-[51px] lg:px-[60px] py-4 sm:py-2 lg:py-3 text-lg/6 sm:text-base/6 lg:text-lg/6`}
+          className={`w-full border-${color} whitespace-nowrap rounded-l-full rounded-r-full border-[1px] border-solid px-16 py-4 text-lg/6 sm:px-[51px] sm:py-2 sm:text-base/6 lg:px-[60px] lg:py-3 lg:text-lg/6`}
         >
           Sign in
         </button>

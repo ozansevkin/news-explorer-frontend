@@ -5,7 +5,7 @@ interface BookmarkIconProps {
 export default function BookmarkIcon({ className }: BookmarkIconProps) {
   return (
     <svg
-      className={`stroke-2 stroke-[#B6BCBF] fill-none ${className}`}
+      className={`fill-none stroke-[#B6BCBF] stroke-2 ${className}`}
       width="14"
       height="19"
       viewBox="0 0 14 19"

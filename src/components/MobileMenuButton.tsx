@@ -13,17 +13,17 @@ export default function MobileMenuButton({
     <button
       type="button"
       aria-label="menu"
-      className="w-6 h-6 flex sm:hidden flex-col items-center justify-center gap-y-1"
+      className="flex h-6 w-6 flex-col items-center justify-center gap-y-1 sm:hidden"
       onClick={onClick}
     >
       <span
         className={`w-4 border-${color} border-[1px] transition ${
-          isMobileMenuOpen && "rotate-45  translate-y-[3px]"
+          isMobileMenuOpen && "translate-y-[3px]  rotate-45"
         }`}
       ></span>
       <span
         className={`w-4 border-${color} border-[1px] transition ${
-          isMobileMenuOpen && "-rotate-45  -translate-y-[3px]"
+          isMobileMenuOpen && "-translate-y-[3px]  -rotate-45"
         }`}
       ></span>
     </button>

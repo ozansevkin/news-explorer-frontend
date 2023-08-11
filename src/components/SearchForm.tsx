@@ -23,20 +23,20 @@ export default function SearchForm({ setSearchValue }: SearchFormProps) {
     <search className="w-full">
       <form
         onSubmit={handleSearchSubmit}
-        className="flex flex-col gap-y-4 sm:flex-row sm:relative"
+        className="flex flex-col gap-y-4 sm:relative sm:flex-row"
       >
         <input
           type="search"
           name="search"
           id="search"
           placeholder={error ? "Please enter a keyword" : "Enter topic"}
-          className={`sm:grow sm:h-16 py-4 sm:py-5 px-4 sm:pl-6 sm:pr-40 lg:pr-44 sm:mr-1 rounded-l-full rounded-r-full text-zinc-900 text-base font-normal caret-blue-600 outline-blue-600 ${
+          className={`rounded-l-full rounded-r-full px-4 py-4 text-base font-normal text-zinc-900 caret-blue-600 outline-blue-600 sm:mr-1 sm:h-16 sm:grow sm:py-5 sm:pl-6 sm:pr-40 lg:pr-44 ${
             error && "placeholder-red-500"
           }`}
         />
         <button
           type="submit"
-          className="sm:absolute sm:right-0 sm:z-10 w-full sm:w-[160px] lg:w-[168px] h-full py-4 rounded-l-full rounded-r-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-lg font-medium leading-normal"
+          className="h-full w-full rounded-l-full rounded-r-full bg-blue-600 py-4 text-lg font-medium leading-normal hover:bg-blue-500 active:bg-blue-700 sm:absolute sm:right-0 sm:z-10 sm:w-[160px] lg:w-[168px]"
         >
           Search
         </button>

@@ -18,7 +18,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${roboto.variable} ${roboto_slab.variable} ${source_sans_3.variable}`}
     >
-      <body className="mx-auto text-zinc-900 bg-white font-sans font-normal text-lg leading-normal relative">
+      <body className="relative mx-auto bg-white font-sans text-lg font-normal leading-normal text-zinc-900">
         {children}
         <Footer />
       </body>
