@@ -3,6 +3,7 @@ import NavItem from "./NavItem";
 import CurrentModalContext from "@/contexts/SetCurrentModalContext";
 import Image from "next/image";
 import logoutIcon from "@/images/icons/logout.svg";
+import { useRouter } from "next/navigation";
 
 interface NavigationProps {
   color: "white" | "black";
@@ -17,6 +18,7 @@ export default function Navigation({
   mobileMenuBackgroundColor,
   isLoggedIn,
 }: NavigationProps) {
+  const router = useRouter();
   const setCurrentModal = useContext(CurrentModalContext);
 
   return (
@@ -44,7 +46,7 @@ export default function Navigation({
       {isLoggedIn ? (
         <button
           type="button"
-          onClick={() => null}
+          onClick={() => router.push("/")}
           className={`flex justify-center w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full whitespace-nowrap sm:pl-[15px] lg:pl-[19px] py-4 sm:py-2 lg:py-3 text-lg/6 sm:text-base/6 lg:text-lg/6`}
         >
           Ozan
