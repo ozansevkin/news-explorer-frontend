@@ -1,14 +1,14 @@
 import Image from "next/image";
 import closeIcon from "@/images/icons/close.svg";
-import { MouseEvent, useContext, useEffect } from "react";
+import { MouseEvent, useCallback, useContext, useEffect } from "react";
 import SetCurrentModalContext from "@/contexts/SetCurrentModalContext";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
   const setCurrentModal = useContext(SetCurrentModalContext);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setCurrentModal(null);
-  };
+  }, [setCurrentModal]);
 
   const handleOverlayClose = (e: MouseEvent) => {
     if (e.target === e.currentTarget) {

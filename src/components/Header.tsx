@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import MobileMenuButton from "./MobileMenuButton";
@@ -13,9 +13,9 @@ interface HeaderProps {
 export default function Header({ color, isLoggedIn }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
-  const toggleMobileMenu = () => {
+  const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  }, [isMobileMenuOpen, setIsMobileMenuOpen]);
 
   const TAILWIND_SM_BREAKPONT_WIDTH = 640;
 
