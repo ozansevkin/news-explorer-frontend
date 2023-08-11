@@ -1,17 +1,21 @@
 import { useContext } from "react";
 import NavItem from "./NavItem";
 import CurrentModalContext from "@/contexts/SetCurrentModalContext";
+import Image from "next/image";
+import logoutIcon from "@/images/icons/logout.svg";
 
 interface NavigationProps {
   color: "white" | "black";
   isMobileMenuOpen: boolean;
   mobileMenuBackgroundColor: "bg-white" | "bg-zinc-900";
+  isLoggedIn: boolean;
 }
 
 export default function Navigation({
   color,
   isMobileMenuOpen,
   mobileMenuBackgroundColor,
+  isLoggedIn,
 }: NavigationProps) {
   const setCurrentModal = useContext(CurrentModalContext);
 
@@ -27,25 +31,38 @@ export default function Navigation({
         <NavItem href="/" color={color} isMobileMenuOpen={isMobileMenuOpen}>
           Home
         </NavItem>
-        <NavItem
-          href="/saved-news"
-          color={color}
-          isMobileMenuOpen={isMobileMenuOpen}
-        >
-          Saved articles
-        </NavItem>
+        {isLoggedIn && (
+          <NavItem
+            href="/saved-news"
+            color={color}
+            isMobileMenuOpen={isMobileMenuOpen}
+          >
+            Saved articles
+          </NavItem>
+        )}
       </ul>
-      <button
-        type="button"
-        onClick={() => setCurrentModal("sign-in")}
-        className={`${
-          isMobileMenuOpen
-            ? "py-4"
-            : "px-16 sm:px-[51px] lg:px-[60px] py-3 sm:py-2 lg:py-3 sm:text-base lg:text-lg"
-        } w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full whitespace-nowrap`}
-      >
-        Sign in
-      </button>
+      {isLoggedIn ? (
+        <button
+          type="button"
+          onClick={() => null}
+          className={`flex justify-center w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full whitespace-nowrap sm:pl-[15px] lg:pl-[19px] py-4 sm:py-2 lg:py-3 text-lg/6 sm:text-base/6 lg:text-lg/6`}
+        >
+          Ozan
+          <Image
+            src={logoutIcon}
+            alt="log out"
+            className="mx-[15px] sm:mx-[13px] lg:mx-[15px]"
+          />
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setCurrentModal("sign-in")}
+          className={`w-full border-${color} border-solid border-[1px] rounded-r-full rounded-l-full whitespace-nowrap px-16 sm:px-[51px] lg:px-[60px] py-4 sm:py-2 lg:py-3 text-lg/6 sm:text-base/6 lg:text-lg/6`}
+        >
+          Sign in
+        </button>
+      )}
     </nav>
   );
 }

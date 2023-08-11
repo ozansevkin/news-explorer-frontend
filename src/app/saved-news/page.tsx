@@ -4,7 +4,7 @@ import SavedNews from "@/components/SavedNews";
 export default function SavedArticles() {
   return (
     <>
-      <Header color="black" />
+      <Header color="black" isLoggedIn={true} />
       <main>
         <SavedNews />
       </main>

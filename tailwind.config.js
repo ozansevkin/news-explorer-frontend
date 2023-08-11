@@ -24,5 +24,8 @@ export const theme = {
     screens: {
       xs: "530px",
     },
+    maxWidth: {
+      "8xl": "1370px",
+    },
   },
 };

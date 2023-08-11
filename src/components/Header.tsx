@@ -7,9 +7,10 @@ import MobileMenuButton from "./MobileMenuButton";
 
 interface HeaderProps {
   color: "white" | "black";
+  isLoggedIn: boolean;
 }
 
-export default function Header({ color }: HeaderProps) {
+export default function Header({ color, isLoggedIn }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const toggleMobileMenu = () => {
@@ -55,6 +56,7 @@ export default function Header({ color }: HeaderProps) {
           color={color}
           isMobileMenuOpen={isMobileMenuOpen}
           mobileMenuBackgroundColor={mobileMenuBackgroundColor}
+          isLoggedIn={isLoggedIn}
         />
         <span
           className={`absolute top-[55px] sm:top-[65px] lg:top-[79px] left-0 w-full border-b-[1px] border-${color} opacity-20`}

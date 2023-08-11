@@ -27,7 +27,7 @@ export default function Home() {
             fill={true}
             className="object-cover -z-10"
           />
-          <Header color="white" />
+          <Header color="white" isLoggedIn={false} />
           <Search setSearchValue={setSearchValue} />
         </div>
         <main>
