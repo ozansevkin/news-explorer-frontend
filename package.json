@@ -1,15 +1,35 @@
 {
   "name": "news-explorer-frontend",
-  "version": "1.0.0",
-  "description": "Frontend of News Explorer app",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.1.0",
+  "private": true,
   "author": "Ozan Sevkin <sevkinozan@gmail.com> (https://ozansevkin.dev)",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/ozansevkin/news-explorer-frontend.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "npx prettier . --write --plugin=prettier-plugin-tailwindcss"
+  },
+  "dependencies": {
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.44.0",
+    "eslint-config-next": "13.4.9",
+    "eslint-config-prettier": "^8.8.0",
+    "next": "13.4.9",
+    "postcss": "8.4.25",
+    "prettier": "3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swr": "^2.2.0",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.6"
   }
 }
