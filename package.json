@@ -12,7 +12,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "npx prettier . --write --plugin=prettier-plugin-tailwindcss"
+    "format": "npx prettier . --write --plugin=prettier-plugin-tailwindcss",
+    "deploy": "npm run build && scp -r ./out/* sevkinozan@newsexplorer.ozansevkin.dev:/home/sevkinozan/news-explorer/frontend"
   },
   "dependencies": {
     "@types/node": "20.4.2",
