@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Ozan Sevkin <sevkinozan@gmail.com> (https://ozansevkin.dev)",
+  "homepage": "https://newsexplorer.ozansevkin.dev/",
   "repository": {
     "type": "git",
     "url": "https://github.com/ozansevkin/news-explorer-frontend.git"
@@ -12,7 +13,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "npx prettier . --write --plugin=prettier-plugin-tailwindcss"
+    "format": "npx prettier . --write --plugin=prettier-plugin-tailwindcss",
+    "deploy": "npm run build && scp -r ./out/* sevkinozan@newsexplorer.ozansevkin.dev:/home/sevkinozan/news-explorer/frontend"
   },
   "dependencies": {
     "@types/node": "20.4.2",
