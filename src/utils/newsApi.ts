@@ -5,13 +5,16 @@ export default async function searchNews(searchValue: string) {
   const fromDate = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
-    currentDate.getDate() - ONE_WEEK,
+    currentDate.getDate() - ONE_WEEK
   ).toISOString();
 
   const API_KEY = "25ba9a2cfb704e30aa9927217a7ec42f";
 
+  // TripleTen proxy server
+  const baseUrl = "https://nomoreparties.co/news";
+
   const res = await fetch(
-    `https://newsapi.org/v2/everything?from=${fromDate}&to=${toDate}&q=${searchValue}&language=en&apiKey=${API_KEY}`,
+    `${baseUrl}/v2/everything?from=${fromDate}&to=${toDate}&q=${searchValue}&language=en&apiKey=${API_KEY}`
   );
 
   if (!res.ok) {
@@ -21,7 +24,7 @@ export default async function searchNews(searchValue: string) {
     }
 
     const error = new Error(
-      "An error occurred while fetching the data.",
+      "An error occurred while fetching the data."
     ) as ReponseError;
     error.info = await res.json();
     error.status = res.status;
