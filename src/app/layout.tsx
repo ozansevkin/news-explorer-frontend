@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { inter, roboto, roboto_slab, source_sans_3 } from "@/utils/fonts";
 import Footer from "@/components/Footer";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "News Explorer",
@@ -19,7 +20,7 @@ export default function RootLayout({
       className={`${inter.variable} ${roboto.variable} ${roboto_slab.variable} ${source_sans_3.variable}`}
     >
       <body className="relative mx-auto bg-white font-sans text-lg font-normal leading-normal text-zinc-900">
-        {children}
+        <Providers>{children}</Providers>
         <Footer />
       </body>
     </html>

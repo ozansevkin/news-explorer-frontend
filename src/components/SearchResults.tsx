@@ -3,7 +3,9 @@ import Preloader from "@/components/Preloader";
 import NotFound from "@/components/NotFound";
 import searchNews from "@/utils/newsApi";
 import useSWR from "swr";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { INewsItem } from "@/utils/types";
+import SavedNewsItemsContext from "@/contexts/SavedNewsItemsContext";
 
 interface SearchResultsProps {
   searchValue: string | null;
@@ -12,10 +14,20 @@ interface SearchResultsProps {
 export default function SearchResults({ searchValue }: SearchResultsProps) {
   const [size, setSize] = useState(3);
   const { data, isLoading, error } = useSWR(searchValue, searchNews);
+  const { savedNewsItems } = useContext(SavedNewsItemsContext);
+
+  const getNewsItems = (data: any) =>
+    data.articles.map((i: INewsItem) => {
+      i.searchValue = searchValue;
+      return i;
+    });
 
   if (error)
     return (
-      <p>{`Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.`}</p>
+      <p>
+        Sorry, something went wrong during the request. There may be a
+        connection issue or the server may be down. Please try again later.
+      </p>
     );
   if (isLoading) return <Preloader text="Searching for news..." />;
   if (data.totalResults === undefined || data.totalResults == 0)
@@ -25,7 +37,7 @@ export default function SearchResults({ searchValue }: SearchResultsProps) {
       <h2 className="mx-auto max-w-8xl px-adaptive pb-[34px] font-serif text-3xl leading-[34px] sm:pb-0 lg:text-[40px] lg:leading-[46px]">
         Search Results
       </h2>
-      <NewsCardList newsItems={data.articles} size={size} />
+      <NewsCardList newsItems={getNewsItems(data)} size={size} />
       {size <= data.totalResults && (
         <button
           type="button"

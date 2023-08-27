@@ -1,10 +1,10 @@
 import Image from "next/image";
 import closeIcon from "@/images/icons/close.svg";
 import { MouseEvent, useCallback, useContext, useEffect } from "react";
-import SetCurrentModalContext from "@/contexts/SetCurrentModalContext";
+import CurrentModalContext from "@/contexts/CurrentModalContext";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
-  const setCurrentModal = useContext(SetCurrentModalContext);
+  const { setCurrentModal } = useContext(CurrentModalContext);
 
   const closeModal = useCallback(() => {
     setCurrentModal(null);

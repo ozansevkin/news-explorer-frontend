@@ -1,8 +1,10 @@
 import SignInModal from "@/components/SignInModal";
 import SignUpModal from "@/components/SignUpModal";
+import SignUpSuccessModal from "@/components/SignUpSuccessModal";
+import { currentModalType } from "@/utils/types";
 
 interface ModalControllerProps {
-  currentModal: "sign-in" | "sign-up" | null;
+  currentModal: currentModalType;
 }
 
 export default function ModalController({
@@ -11,6 +13,7 @@ export default function ModalController({
   const renderModal = {
     "sign-in": <SignInModal />,
     "sign-up": <SignUpModal />,
+    "sign-up-success": <SignUpSuccessModal />,
   };
 
   return currentModal && renderModal[currentModal];

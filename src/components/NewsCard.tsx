@@ -1,26 +1,43 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useContext, useState } from "react";
 import BookmarkIcon from "./icons/BookmarkIcon";
 import TrashIcon from "./icons/TrashIcon";
 import cardPlaceholder from "@/images/placeholder.png";
+import CurrentUserContext from "@/contexts/CurrentUserContext";
+import CurrentModalContext from "@/contexts/CurrentModalContext";
+import {
+  sendDeleteRequestWithToken,
+  sendPostRequestWithToken,
+} from "@/utils/mainApi";
+import { INewsItem } from "@/utils/types";
+import SavedNewsItemsContext from "@/contexts/SavedNewsItemsContext";
+import { capitalizeString } from "@/utils/helpers";
+import { usePathname } from "next/navigation";
 
 interface NewsCardProps {
-  newsItem: newsItem;
-}
-
-interface newsItem {
-  publishedAt: string | null;
-  source: {
-    id: string | null;
-    name: string | null;
-  } | null;
-  title: string | null;
-  description: string | null;
-  url: string;
-  urlToImage: string | null;
+  newsItem: INewsItem;
 }
 
 export default function NewsCard({ newsItem }: NewsCardProps) {
-  const { publishedAt, source, title, description, url, urlToImage } = newsItem;
+  const pathname = usePathname();
+  const isPathSavedNews = pathname === "/saved-news";
+
+  const { isLoggedIn } = useContext(CurrentUserContext);
+  const { setCurrentModal } = useContext(CurrentModalContext);
+  const { savedNewsItems, setSavedNewsItems } = useContext(
+    SavedNewsItemsContext
+  );
+  const {
+    publishedAt,
+    source,
+    title,
+    description,
+    url,
+    urlToImage,
+    searchValue,
+    id = savedNewsItems?.find((i) => url === i?.link)?._id,
+  } = newsItem;
+
+  const [isSaved, setIsSaved] = useState(Boolean(id));
 
   const dateOptions: Intl.DateTimeFormatOptions = {
     year: "numeric",
@@ -31,8 +48,53 @@ export default function NewsCard({ newsItem }: NewsCardProps) {
     ? new Date(publishedAt).toLocaleDateString(undefined, dateOptions)
     : null;
 
+  const deleteArticle = () => {
+    sendDeleteRequestWithToken(`/articles/${id}`, {
+      arg: {
+        token: localStorage.getItem("jwt"),
+      },
+    })
+      .then(() => {
+        setIsSaved(false);
+        setSavedNewsItems(
+          savedNewsItems ? savedNewsItems?.filter((i) => i?._id !== id) : null
+        );
+      })
+      .catch(console.error);
+  };
+
+  const saveArticle = () => {
+    sendPostRequestWithToken("/articles", {
+      arg: {
+        token: localStorage.getItem("jwt"),
+        keyword: searchValue,
+        title,
+        text: description,
+        date: publishedAt,
+        source: source?.name,
+        link: url,
+        image: urlToImage,
+      },
+    })
+      .then(({ article }) => {
+        setIsSaved(true);
+        setSavedNewsItems(
+          savedNewsItems ? [...savedNewsItems, article] : [article]
+        );
+      })
+      .catch(console.error);
+  };
+
   const handleButtonClick = (e: MouseEvent) => {
     e.stopPropagation();
+
+    if (isSaved && isLoggedIn) {
+      deleteArticle();
+    } else if (isLoggedIn) {
+      saveArticle();
+    } else {
+      setCurrentModal("sign-in");
+    }
   };
 
   return (
@@ -50,17 +112,31 @@ export default function NewsCard({ newsItem }: NewsCardProps) {
         onClick={handleButtonClick}
         className="group absolute right-4 top-4 flex items-center justify-center gap-x-1 overflow-hidden rounded-lg sm:right-2 sm:top-2 lg:right-6 lg:top-6"
       >
-        <p className="z-10 hidden h-10 w-0 translate-x-52 items-center justify-center rounded-lg bg-white text-xs font-medium text-black transition-all duration-300 group-hover:w-[182px] group-hover:translate-x-0 xl:flex">
-          Sign in to save articles
-        </p>
+        {(!isLoggedIn || isPathSavedNews) && (
+          <p className="z-10 hidden h-10 w-0 translate-x-52 items-center justify-center rounded-lg bg-white text-xs font-medium text-black transition-all duration-300 group-hover:w-[182px] group-hover:translate-x-0 xl:flex">
+            {!isLoggedIn && "Sign in to save articles"}
+            {isPathSavedNews && "Remove from saved"}
+          </p>
+        )}
         <div className="z-20 flex h-10 w-10 items-center justify-center rounded-lg bg-white">
-          <BookmarkIcon className="transition-all duration-300 group-hover:stroke-black group-active:fill-blue-600 group-active:stroke-blue-600" />
-          {/* <TrashIcon className="group-hover:fill-black group-active:fill-blue-600 transition-all duration-300" /> */}
+          {isPathSavedNews ? (
+            <TrashIcon className="transition-all duration-300 group-hover:fill-black group-active:fill-blue-600" />
+          ) : (
+            <BookmarkIcon
+              className={`transition-all duration-300 group-hover:stroke-black ${
+                isSaved &&
+                isLoggedIn &&
+                "fill-blue-600 stroke-blue-600 group-hover:fill-blue-500 group-hover:stroke-blue-500"
+              }`}
+            />
+          )}
         </div>
       </button>
-      {/* <p className="absolute top-4 sm:top-2 lg:top-6 left-4 sm:left-2 lg:left-6 flex items-center justify-center rounded-lg bg-white h-10 px-[22px] text-black text-sm font-medium">
-        Nature
-      </p> */}
+      {isPathSavedNews && (
+        <p className="absolute left-4 top-4 flex h-10 items-center justify-center rounded-lg bg-white px-[22px] text-sm font-medium text-black sm:left-2 sm:top-2 lg:left-6 lg:top-6">
+          {capitalizeString(searchValue ? searchValue : "")}
+        </p>
+      )}
       <a
         href={url}
         target="_blank"
