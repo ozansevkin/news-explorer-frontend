@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 export default function SavedArticles() {
   const router = useRouter();
 
+  if (typeof window === "undefined") return;
   const token = localStorage.getItem("jwt");
 
   const isAuth = token

@@ -39,7 +39,8 @@ export default function Providers({ children }: { children: ReactNode }) {
     console.error(err);
   };
 
-  const token = localStorage.getItem("jwt");
+  const token =
+    typeof window !== "undefined" ? window.localStorage.getItem("jwt") : null;
 
   useSWR(
     mounted && token ? ["/users/me", token] : null,
@@ -47,7 +48,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     {
       onSuccess: handleUserSuccess,
       onError: handleError,
-    },
+    }
   );
 
   useSWR(
@@ -56,7 +57,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     {
       onSuccess: handleArticlesSuccess,
       onError: handleError,
-    },
+    }
   );
 
   return (
