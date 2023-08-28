@@ -20,7 +20,7 @@ export async function checkResponse(res: Response) {
   throw new ReponseError(
     "An error occurred while fetching the data.",
     info,
-    status
+    status,
   );
 }
 
@@ -42,7 +42,7 @@ export async function sendPostRequest(path: string, { arg }: PostRequestArg) {
 
 export async function sendPostRequestWithToken(
   path: string,
-  { arg }: PostRequestArg
+  { arg }: PostRequestArg,
 ) {
   const { token, ...rest } = arg;
 
@@ -58,7 +58,7 @@ export async function sendPostRequestWithToken(
 
 export async function sendGetRequestWithToken(
   path: string,
-  { arg }: PostRequestArg
+  { arg }: PostRequestArg,
 ) {
   const { token } = arg;
 
@@ -71,7 +71,7 @@ export async function sendGetRequestWithToken(
 
 export async function sendDeleteRequestWithToken(
   path: string,
-  { arg }: PostRequestArg
+  { arg }: PostRequestArg,
 ) {
   const { token } = arg;
 

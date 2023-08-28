@@ -6,6 +6,7 @@ import useSWR from "swr";
 import { useContext, useState } from "react";
 import { INewsItem } from "@/utils/types";
 import SavedNewsItemsContext from "@/contexts/SavedNewsItemsContext";
+import defaultErrorMessage from "@/errors/messages";
 
 interface SearchResultsProps {
   searchValue: string | null;
@@ -22,13 +23,7 @@ export default function SearchResults({ searchValue }: SearchResultsProps) {
       return i;
     });
 
-  if (error)
-    return (
-      <p>
-        Sorry, something went wrong during the request. There may be a
-        connection issue or the server may be down. Please try again later.
-      </p>
-    );
+  if (error) return <p>{defaultErrorMessage}</p>;
   if (isLoading) return <Preloader text="Searching for news..." />;
   if (data.totalResults === undefined || data.totalResults == 0)
     return <NotFound text="Sorry, but nothing matched your search terms." />;

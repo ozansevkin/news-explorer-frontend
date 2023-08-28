@@ -24,7 +24,7 @@ export default function NewsCard({ newsItem }: NewsCardProps) {
   const { isLoggedIn } = useContext(CurrentUserContext);
   const { setCurrentModal } = useContext(CurrentModalContext);
   const { savedNewsItems, setSavedNewsItems } = useContext(
-    SavedNewsItemsContext
+    SavedNewsItemsContext,
   );
   const {
     publishedAt,
@@ -57,7 +57,7 @@ export default function NewsCard({ newsItem }: NewsCardProps) {
       .then(() => {
         setIsSaved(false);
         setSavedNewsItems(
-          savedNewsItems ? savedNewsItems?.filter((i) => i?._id !== id) : null
+          savedNewsItems ? savedNewsItems?.filter((i) => i?._id !== id) : null,
         );
       })
       .catch(console.error);
@@ -79,7 +79,7 @@ export default function NewsCard({ newsItem }: NewsCardProps) {
       .then(({ article }) => {
         setIsSaved(true);
         setSavedNewsItems(
-          savedNewsItems ? [...savedNewsItems, article] : [article]
+          savedNewsItems ? [...savedNewsItems, article] : [article],
         );
       })
       .catch(console.error);

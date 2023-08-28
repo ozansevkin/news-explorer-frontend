@@ -2,6 +2,7 @@ import { FormEventHandler, useContext } from "react";
 import Modal from "./Modal";
 import CurrentModalContext from "@/contexts/CurrentModalContext";
 import ReponseError from "@/errors/Response";
+import defaultErrorMessage from "@/errors/messages";
 
 interface ModalWithFormProps {
   title: string;
@@ -33,8 +34,9 @@ export default function ModalWithForm({
         <fieldset className="font-inter">{children}</fieldset>
         {responseError && (
           <p className="text-center text-xs font-normal text-[red]">
-            {responseError.info.validation?.body.message ||
-              responseError.info.message}
+            {responseError.info?.validation?.body?.message ||
+              responseError.info?.message ||
+              defaultErrorMessage}
           </p>
         )}
         <button

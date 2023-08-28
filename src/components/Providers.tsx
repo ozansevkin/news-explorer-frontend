@@ -48,7 +48,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     {
       onSuccess: handleUserSuccess,
       onError: handleError,
-    }
+    },
   );
 
   useSWR(
@@ -57,7 +57,7 @@ export default function Providers({ children }: { children: ReactNode }) {
     {
       onSuccess: handleArticlesSuccess,
       onError: handleError,
-    }
+    },
   );
 
   return (
