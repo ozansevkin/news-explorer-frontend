@@ -1,5 +1,3 @@
-"use client";
-
 import { useCallback, useEffect, useState } from "react";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
@@ -7,10 +5,9 @@ import MobileMenuButton from "./MobileMenuButton";
 
 interface HeaderProps {
   color: "white" | "black";
-  isLoggedIn: boolean;
 }
 
-export default function Header({ color, isLoggedIn }: HeaderProps) {
+export default function Header({ color }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const toggleMobileMenu = useCallback(() => {
@@ -56,7 +53,6 @@ export default function Header({ color, isLoggedIn }: HeaderProps) {
           color={color}
           isMobileMenuOpen={isMobileMenuOpen}
           mobileMenuBackgroundColor={mobileMenuBackgroundColor}
-          isLoggedIn={isLoggedIn}
         />
         <span
           className={`absolute left-0 top-[55px] w-full border-b-[1px] sm:top-[65px] lg:top-[79px] border-${color} opacity-20`}
