@@ -1,34 +1,27 @@
-# WTWR (What to Wear?)
+# News Explorer: Front End
 
-[![WTWR (What to Wear?)][product-screenshot]](https://wtwr.ozansevkin.dev)
+[![WTWR (What to Wear?)][product-screenshot]](https://newsexplorer.ozansevkin.dev)
 
 ## About the project
 
-The idea of the application is pretty simple - It makes a call to an API, which then responds with the daily weather forecast. It collects the weather data, processes it, and then based on the forecast, it recommends suitable clothing to the user.
+News Explorer is a web application allows you to search latest news around the world by keywords and save them to your personal account.
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Links
 
-- [Figma Design](https://www.figma.com/file/F03bTb81Pw8IDPj5Y9rc5i/Sprint-10-%7C-WTWR)
+- [Figma Design](https://www.figma.com/file/z1bxDn7eBEDlsDhnZ9dtin/Your-Final-Project?node-id=0%3A1)
 
-- [Backend Repo](https://github.com/ozansevkin/se_project_express)
+- [Backend Repo](https://github.com/ozansevkin/news-explorer-backend)
 
-- [Production](https://wtwr.ozansevkin.dev)
+- [Production](https://newsexplorer.ozansevkin.dev)
 
 ## Built with
 
 - [HTML3](https://developer.mozilla.org/en-US/docs/Web/HTML)
   - Semantic HTML
-- [CSS5](https://developer.mozilla.org/en-US/docs/Web/CSS)
-  - PostCSS Normalize
-  - Flexbox, grid
-  - Positioning
-  - CSS variables
-  - Custom hamburger button design with transition
-  - Custom form design
-  - Responsive design
-    - Media queries
-    - Calc, min, max functions
-    - vw, vh units
+- [Tailwind CSS](https://tailwindcss.com/)
+  - Utility Classes
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
   - Functional Programming
   - Modules
@@ -37,13 +30,19 @@ The idea of the application is pretty simple - It makes a call to an API, which 
     - Fetch Requests
     - Error Handling
 - [React](https://react.dev/)
-  - Vite
+  - [Next.js](https://nextjs.org/)
+    - App Router
+    - Image and Link components
+    - Font optimization with next/font
+    - Image optimization with sharp during build (handled by Next.js)
   - JSX
     - Props
     - Lists
     - Handling Events
   - Functional Components
   - Hooks
+    - [SWR](https://swr.vercel.app/)
+      - Data fetching
     - useState
     - useEffect
     - useContext
@@ -51,29 +50,6 @@ The idea of the application is pretty simple - It makes a call to an API, which 
 - [Figma](https://www.figma.com)
   - Responsive Design
   - UI Kit
-- [BEM](http://getbem.com/)
-  - Blocks
-  - Elements
-  - Modifiers
-
-## Roadmap
-
-- [x] Add React state management
-- [x] Add React Router
-- [x] Add login authorization
-- [x] Add temperature unit selection (celcius, fahrenheit, etc.)
-- [x] Add geolocation API
-
-## Contact
-
-Ozan Sevkin - [@ozansevkin](https://twitter.com/ozansevkin) - [linkedin] - sevkinozan@gmail.com
-
-<!-- MARKDOWN LINKS & IMAGES -->
-
-[linkedin]: https://linkedin.com/in/ozansevkin
-[product-screenshot]: https://i.ibb.co/Y2cdgY6/screencapture-ozansevkin-github-io-se-project-react-2023-04-05-11-26-26.png
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -98,8 +74,15 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Roadmap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [] TBA
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+
+Ozan Sevkin - [@ozansevkin](https://twitter.com/ozansevkin) - [linkedin] - sevkinozan@gmail.com
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[linkedin]: https://linkedin.com/in/ozansevkin
+[product-screenshot]: https://i.ibb.co/X2Cd6pk/screencapture-newsexplorer-ozansevkin-dev-2023-08-28-11-41-31.png
