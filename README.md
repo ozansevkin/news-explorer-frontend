@@ -1,6 +1,6 @@
 # News Explorer: Front End
 
-[![WTWR (What to Wear?)][product-screenshot]](https://newsexplorer.ozansevkin.dev)
+[![News Explorer][product-screenshot]](https://newsexplorer.ozansevkin.dev)
 
 ## About the project
 
